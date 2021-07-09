@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1050541674869",
+    "project_id": "docthru",
+    "storage_bucket": "docthru.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1050541674869:android:5451d87cb147e445bbc33c",
+        "android_client_info": {
+          "package_name": "com.example.docthru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1050541674869-3hojg731d3jlgmp57nvql89sl7dfuobv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBC4a25JW9zMdx_HMu-DhcI6UzMlXEJIQg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1050541674869-3hojg731d3jlgmp57nvql89sl7dfuobv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
