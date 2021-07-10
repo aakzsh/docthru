@@ -5,6 +5,7 @@ const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement
 const btn = document.querySelector(".clickme")
 const stopBtn = document.querySelector(".stop")
 const flipBtn = document.querySelector(".flip")
+const vd = document.querySelector(".vd")
 webcam.start()
     .then(result =>{
         console.log("webcam started");
@@ -35,6 +36,7 @@ btn.addEventListener("click", () => {
     { logger: m => console.log(m) }
   ).then(({ data: { text } }) => {
     console.log(text);
+    vd.textContent = text;
   })
     
 })
