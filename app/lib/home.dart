@@ -1,4 +1,5 @@
 import 'package:docthru/encrypt.dart';
+import 'package:docthru/patients.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -79,7 +80,10 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 MaterialButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Patients()));
+                  },
                   height: 150,
                   minWidth: 150,
                   color: Colors.purple[400],

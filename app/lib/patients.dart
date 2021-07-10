@@ -40,7 +40,8 @@ class _PatientsState extends State<Patients> {
           },
         ),
         body: Container(
-            child: SingleChildScrollView(
+            child: Container(
+                height: 400,
                 child: ListView.builder(
                     padding: const EdgeInsets.all(8),
                     itemCount: array.length,

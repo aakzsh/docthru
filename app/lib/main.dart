@@ -359,7 +359,8 @@ signup(firebaseAuth, context) {
                 "name": stringToBase64.encode(name),
                 "email": stringToBase64.encode(email),
                 "place": stringToBase64.encode(place),
-                "profession": stringToBase64.encode(profession)
+                "profession": stringToBase64.encode(profession),
+                "count": 0,
               });
               Navigator.pushReplacement(
                   context,

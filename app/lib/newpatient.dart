@@ -9,7 +9,7 @@ class NewPatient extends StatefulWidget {
 }
 
 class _NewPatientState extends State<NewPatient> {
-  int count;
+  int count = 0;
   String name, care, threshold, note;
   final auth = FirebaseAuth.instance;
   final firestoreInstance = FirebaseFirestore.instance;
@@ -18,6 +18,7 @@ class _NewPatientState extends State<NewPatient> {
     return Scaffold(
       body: Container(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             TextField(
               onChanged: (value) {
@@ -47,7 +48,7 @@ class _NewPatientState extends State<NewPatient> {
                               .doc(FirebaseAuth.instance.currentUser?.uid)
                               .set({
                             "patients[$count]": name,
-                            "count": count++,
+                            // "count": count++,
                           }).then((res) {
                             Navigator.pushAndRemoveUntil(
                                 context,
