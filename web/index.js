@@ -1,24 +1,28 @@
 const webcamElement = document.getElementById('webcam');
 const canvasElement = document.getElementById('canvas');
-
 const snapSoundElement = document.getElementById('snapSound');
 const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement)
 const btn = document.querySelector(".clickme")
 const stopBtn = document.querySelector(".stop")
+const flipBtn = document.querySelector(".flip")
 webcam.start()
-   .then(result =>{
-      console.log("webcam started");
+    .then(result =>{
+        console.log("webcam started");
     //   webcam.flip();
-   })
-   .catch(err => {
-       console.log(err);
-   });
+    })
+    .catch(err => {
+        console.log(err);
+});
 
-
+          
 
 stopBtn.addEventListener("click", () => {
     webcam.stop()
-})
+});
+
+flipBtn.addEventListener("click", () => {
+    webcam.flip()
+});
 
 btn.addEventListener("click", () => {
     let picture = webcam.snap();
@@ -43,16 +47,7 @@ btn.addEventListener("click", () => {
 //     console.log(text);
 //   })
 
-
-
-
 //tesseract
-
-    
-
-
-
-
 // const worker = createWorker({
 //     logger: m => console.log(m)
 //   });
