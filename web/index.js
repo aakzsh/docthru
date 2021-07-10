@@ -1,7 +1,7 @@
 const webcamElement = document.getElementById('webcam');
 const canvasElement = document.getElementById('canvas');
 const snapSoundElement = document.getElementById('snapSound');
-const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement)
+const webcam = new Webcam(webcamElement, 'environment', canvasElement, snapSoundElement)
 const btn = document.querySelector(".clickme")
 const stopBtn = document.querySelector(".stop")
 const flipBtn = document.querySelector(".flip")
@@ -9,7 +9,7 @@ const vd = document.querySelector(".vd")
 webcam.start()
     .then(result =>{
         console.log("webcam started");
-    //   webcam.flip();
+  
     })
     .catch(err => {
         console.log(err);
@@ -28,7 +28,7 @@ flipBtn.addEventListener("click", () => {
 btn.addEventListener("click", () => {
     let picture = webcam.snap();
     console.log(picture)
-    console.log("dwnld")
+    // console.log("dwnld")
     // document.querySelector('#download-photo').href = picture;
     Tesseract.recognize(
     picture,
