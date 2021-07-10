@@ -28,7 +28,7 @@ flipBtn.addEventListener("click", () => {
 });
 
 btn.addEventListener("click", () => {
-    continuousPicture = setInterval(recognize, 1000)});
+    continuousPicture = setInterval(recognize, 10000)});
 
 
 function recognize() {
