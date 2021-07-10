@@ -7,6 +7,7 @@ const stopBtn = document.querySelector(".stop")
 const flipBtn = document.querySelector(".flip")
 const vd = document.querySelector(".vd")
 let continuousPicture;
+
 webcam.start()
     .then(result =>{
         console.log("webcam started");
@@ -16,56 +17,51 @@ webcam.start()
         console.log(err);
 });
 
-          
-
 stopBtn.addEventListener("click", () => {
     webcam.stop()
     clearInterval(continuousPicture);
 });
-
 flipBtn.addEventListener("click", () => {
     webcam.flip();
 });
 
 btn.addEventListener("click", () => {
-    continuousPicture = setInterval(recognize, 10000)});
-
-
+    // recognize();
+    continuousPicture = setInterval(recognize, 10000);
+});
 function recognize() {
     // console.log("hi")
     let picture = webcam.snap();
-    console.log(picture)
-    // console.log("dwnld")
-    document.querySelector('#download-photo').href = picture;
 
-    Tesseract.recognize(
+    
+   
+
+
+       Tesseract.recognize(
         picture,
         'eng',
         { logger: m => console.log(m) }
       ).then(({ data: { text } }) => {
         console.log(text);
         vd.textContent = text;
+     
     })
+
+ 
+    
+    
+    
+   
+    // console.log("dwnld")
+    // document.querySelector('#download-photo').href = picture;
+
+    // Tesseract.recognize(
+    //     picture,
+    //     'eng',
+    //     { logger: m => console.log(m) }
+    //   ).then(({ data: { text } }) => {
+    //     console.log(text);
+    //     vd.textContent = text;
+    // })
 }
 
-// Tesseract.recognize(
-//     'lol.jpg',
-//     'eng',
-//     { logger: m => console.log(m) }
-//   ).then(({ data: { text } }) => {
-//     console.log(text);
-//   })
-
-//tesseract
-// const worker = createWorker({
-//     logger: m => console.log(m)
-//   });
-  
-//   (async () => {
-//     await worker.load();
-//     await worker.loadLanguage('eng');
-//     await worker.initialize('eng');
-//     const { data: { text } } = await worker.recognize('dc.png');
-//     console.log(text);
-//     await worker.terminate();
-//   })();
