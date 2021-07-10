@@ -1,7 +1,9 @@
+import 'package:docthru/Home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 const AndroidNotificationChannel channel = AndroidNotificationChannel(
   "high_importance_channel",
@@ -10,7 +12,8 @@ const AndroidNotificationChannel channel = AndroidNotificationChannel(
   importance: Importance.high,
   playSound: true,
 );
-
+final auth = FirebaseAuth.instance;
+String email, password;
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
 
@@ -94,38 +97,88 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        color: Colors.white,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: <Widget>[
-            Row(
+    return Scaffold(
+        body: Container(
+            color: Colors.white,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Icon(Icons.medical_services_outlined),
-                Text("Docthru",
-                    style:
-                        TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold))
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.medical_services_outlined),
+                    Text("Docthru",
+                        style: TextStyle(
+                            fontSize: 30.0, fontWeight: FontWeight.bold))
+                  ],
+                ),
+                Center(
+                  child: MaterialButton(
+                    onPressed: () {
+                      flutterLocalNotificationsPlugin.show(
+                          0,
+                          "testing",
+                          "lol shoulda work",
+                          NotificationDetails(
+                              android: AndroidNotificationDetails(
+                                  channel.id, channel.name, channel.description,
+                                  color: Colors.red,
+                                  importance: Importance.high,
+                                  icon: '@mipmap/ic_launcher',
+                                  playSound: true)));
+                    },
+                    child: Text("Button"),
+                  ),
+                )
               ],
-            ),
-            Center(
-              child: MaterialButton(
-                onPressed: () {
-                  flutterLocalNotificationsPlugin.show(
-                      0,
-                      "testing",
-                      "lol shoulda work",
-                      NotificationDetails(
-                          android: AndroidNotificationDetails(
-                              channel.id, channel.name, channel.description,
-                              color: Colors.red,
-                              importance: Importance.high,
-                              icon: '@mipmap/ic_launcher',
-                              playSound: true)));
-                },
-                child: Text("Button"),
-              ),
-            )
-          ],
-        ));
+            )));
   }
+}
+
+login(context) {
+  return Column(
+    children: <Widget>[
+      TextField(
+        onChanged: (text) {
+          email = text;
+        },
+      ),
+      TextField(
+        obscureText: true,
+        onChanged: (text) {
+          password = text;
+        },
+      ),
+      MaterialButton(
+          child: Text("Login"),
+          onPressed: () {
+            auth
+                .signInWithEmailAndPassword(email: email, password: password)
+                .then((result) {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => Home()),
+              );
+            }).catchError((err) {
+              print(err.message);
+              showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text("Error"),
+                      content: Text(err.message),
+                      actions: [
+                        TextButton(
+                          child: Text("Ok"),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        )
+                      ],
+                    );
+                  });
+            });
+          })
+    ],
+  );
 }
