@@ -11,21 +11,8 @@ let continuousPicture;
 
 //threshold values
 
-const token = "1bbb8a5f-5977-425e-9733-fdcc5a0ad685";
 
-function sendEmail(reason) {
-    Email.send({
-        SecureToken : token,
-        To : 'shruti.g2121@gmail.com',
-        From : "konnectprototype@gmail.com",
-        Subject : "This is the subject",
-        Body : "And this is the body"
-    }).then(
-      message => alert(message)
-    );
-}
 
-sendEmail("reason")
 
 // const heartrate = [90,100]
 // const firstbp = [90, 130]
