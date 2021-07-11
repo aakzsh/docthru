@@ -8,6 +8,8 @@ const flipBtn = document.querySelector(".flip")
 const vd = document.querySelector(".vd")
 let continuousPicture;
 
+
+
 webcam.start()
     .then(result =>{
         console.log("webcam started");
@@ -32,7 +34,10 @@ btn.addEventListener("click", () => {
 function recognize() {
     // console.log("hi")
     let picture = webcam.snap();
-
+    let temp = []
+    let item;
+    let n;
+    let nitem;
     
    
 
@@ -40,10 +45,43 @@ function recognize() {
        Tesseract.recognize(
         picture,
         'eng',
-        { logger: m => console.log(m) }
+        
       ).then(({ data: { text } }) => {
-        console.log(text);
+        
+        const output = text.split("\n");
+
+
+        
         vd.textContent = text;
+
+        
+        
+           //parse data
+            for(let i=0; i < output.length; i++){
+
+                // console.log(output[i])
+                if(output[i].includes("/")) {
+                    n = output[i].split("/");
+                    for(let j=0; j < n.length; j++){
+                        nitem = parseInt(n[j])
+                        if(!isNaN(nitem)){
+                            temp.push(nitem)
+                        }
+                    }
+                }else{
+                    item = parseInt(output[i])
+                    if(!isNaN(item)){
+                        temp.push(item)
+                    }
+                }
+                
+            }
+            
+        
+        console.log(temp);
+        
+
+
      
     })
 
