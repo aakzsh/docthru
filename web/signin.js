@@ -1,5 +1,3 @@
-
-  // Initialize Firebase
 const fb =  firebase.initializeApp(firebaseConfig);
 const emailInput = document.querySelector('.email');
 const passwordInput = document.querySelector('.password');
@@ -16,7 +14,7 @@ loginBtn.addEventListener('click', (e) => {
 
     const auth = fb.auth();
 
-    auth.createUserWithEmailAndPassword(email, password)
+    auth.signInWithEmailAndPassword(email, password)
         .then(() => {
             console.log('Signed Up Successfully !');
             window.location.href = "main.html"
@@ -25,6 +23,3 @@ loginBtn.addEventListener('click', (e) => {
     })
 
 })
-
-
-

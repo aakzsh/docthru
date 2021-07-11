@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+	<script src='https://unpkg.com/tesseract.js@v2.0.2/dist/tesseract.min.js'></script>
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1/dist/tf.min.js"> </script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js"> </script>
+
+	<title>Docthru</title>
+	
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	
+	<h3>Predicted Values: <span class="vd">Loading..</span> </h3>
+
+
+	<div class="container">
+		<video id="webcam" autoplay playsinline width="640" height="480"></video>
+		<canvas id="canvas" class="d-none"></canvas>
+	</div>
+	
+	<a href="#" id="#download-photo"></a>
+	<div class="btn-container">
+
+		<button class="clickme ">Click</button>
+		<button class="stop ">Stop</button>
+	</div>
+
+	
+	
+
+	
+
+	<script src="firebase.js"></script>
+	<script src="index.js"></script>
+	
+</body>
+</html>

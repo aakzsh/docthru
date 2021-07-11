@@ -56,9 +56,7 @@ stopBtn.addEventListener("click", () => {
     webcam.stop()
     clearInterval(continuousPicture);
 });
-flipBtn.addEventListener("click", () => {
-    webcam.flip();
-});
+
 
 btn.addEventListener("click", () => {
     // recognize();

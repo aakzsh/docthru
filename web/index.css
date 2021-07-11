@@ -1,6 +1,31 @@
 
 
 body{
-    background-color: lightcoral;
+    
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+}
+
+:root {
+    --clr-accent: #BA68C8;
+    --ff-poppins: "Poppins", sans-serif;
+    --ff-jose: "Josefin Sans", sans-serif;
+  }
+
+  .btn-container {
+      display: flex;
+      justify-content: center;
+  }
+
+.clickme, .stop {
+    background-color: var(--clr-accent);
+    border: none;
+    color: white;
+    padding: 0.9rem 2.5rem;
+    border-radius: 25px;
+    font-size: 18px;
 }
 

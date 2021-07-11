@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
-	<script src='https://unpkg.com/tesseract.js@v2.0.2/dist/tesseract.min.js'></script>
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.14.1/dist/tf.min.js"> </script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script src="https://smtpjs.com/v3/smtp.js"> </script>
-
-	<title>Docthru</title>
-	
-	<link rel="stylesheet" href="index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocThru</title>
+    <link rel="stylesheet" href="landing.css">
 </head>
 <body>
-	<h1 class="vd">Loading..</h1>
-	<video id="webcam" autoplay playsinline width="640" height="480"></video>
-	<canvas id="canvas" class="d-none"></canvas>
-	<a href="#" id="#download-photo"></a>
-	<button class="clickme">Click</button>
-	<button class="stop">Stop</button>
-	<button class="flip camera">flip camera</button>
-	
-	<script src="firebase.js"></script>
-	<script src="index.js"></script>
-	
+    <nav>
+        <div class="nav">
+            <div class="logo-container">
+                <div class="logo"></div>
+                <h1>DocThru</h1>
+            </div>
+
+            <div class="btn-c">
+                <button class="login-btn"> <a href="auth.html">SignUp</a></button>
+                <button class="login-btn"> <a href="signin.html">Login</a></button>
+            </div>
+        </div>
+
+    </nav>
+    <main>
+
+        <div class="container">
+            <div class="left">
+                <h3>Keep in touch with your patients  </h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At dignissimos quam fuga delectus, ut sequi, est explicabo illo eligendi molestiae laborum repellat. Dignissimos laborum, officiis fugiat molestias quo accusamus excepturi? </p>
+                <button><a href="main.html"> Get Started</a></button>
+            </div>
+            <div class="right">
+                <img src="security.svg" alt="">
+            </div>
+        </div>
+    </main>
 </body>
 </html>
